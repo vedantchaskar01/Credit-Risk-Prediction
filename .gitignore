@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environments
+.venv/
+venv/
+ENV/
+
+# Ignore actual heavy data files (DVC tracks these)
+data/raw/data.csv
+data/processed/*.csv
+
+# Models
+models/*.pkl
