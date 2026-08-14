@@ -7,14 +7,10 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 
 def get_data_transformer_object() -> ColumnTransformer:
-    """
-    Creates and returns a pre-processing pipeline for numerical and categorical features.
-    """
-    # Define column groups
+    
     numerical_columns = ["age", "income", "credit_score"]
     categorical_columns = ["employment_type"]
 
-    # Pipeline for numerical features: Fill missing values with median -> Scale values
     num_pipeline = Pipeline(
         steps=[
             ("imputer", SimpleImputer(strategy="median")),
@@ -22,7 +18,6 @@ def get_data_transformer_object() -> ColumnTransformer:
         ]
     )
 
-    # Pipeline for categorical features: Fill missing values with most frequent -> One-Hot Encode
     cat_pipeline = Pipeline(
         steps=[
             ("imputer", SimpleImputer(strategy="most_frequent")),
@@ -31,7 +26,6 @@ def get_data_transformer_object() -> ColumnTransformer:
         ]
     )
 
-    # Combine numerical and categorical pipelines using ColumnTransformer
     preprocessor = ColumnTransformer(
         transformers=[
             ("num_pipeline", num_pipeline, numerical_columns),
@@ -42,10 +36,8 @@ def get_data_transformer_object() -> ColumnTransformer:
     return preprocessor
 
 if __name__ == "__main__":
-    # Test our transformation pipeline on train data
     train_df = pd.read_csv("data/processed/train.csv")
     
-    # Separate features (X) and target (y)
     X_train = train_df.drop(columns=["default"])
     y_train = train_df["default"]
 
