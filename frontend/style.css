@@ -1,0 +1,183 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --danger: #ef4444;
+    --success: #10b981;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.15), transparent 40%);
+}
+
+.glass-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.header span {
+    color: var(--primary);
+}
+
+.header p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group input, .input-group select {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Result Card Styles */
+.result-card {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.result-card.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.probability-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.8);
+    border: 4px solid var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+#probabilityText {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.probability-circle p {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.result-message {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.risk-high {
+    color: var(--danger);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.risk-low {
+    color: var(--success);
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}

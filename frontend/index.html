@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Risk Analyzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-container">
+        <div class="header">
+            <h1>Credit Risk <span>Analyzer</span></h1>
+            <p>AI-Powered Default Prediction System</p>
+        </div>
+
+        <form id="predictionForm" class="form-grid">
+            <div class="input-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required min="18" max="100" placeholder="e.g. 35">
+            </div>
+
+            <div class="input-group">
+                <label for="income">Annual Income ($)</label>
+                <input type="number" id="income" name="income" required min="0" placeholder="e.g. 50000">
+            </div>
+
+            <div class="input-group">
+                <label for="credit_score">Credit Score</label>
+                <input type="number" id="credit_score" name="credit_score" required min="300" max="850" placeholder="e.g. 720">
+            </div>
+
+            <div class="input-group">
+                <label for="employment_type">Employment Type</label>
+                <select id="employment_type" name="employment_type" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Salaried">Salaried</option>
+                    <option value="Self-Employed">Self-Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                </select>
+            </div>
+
+            <button type="submit" id="submitBtn">
+                <span class="btn-text">Analyze Risk</span>
+                <div class="loader hidden"></div>
+            </button>
+        </form>
+
+        <div id="resultCard" class="result-card hidden">
+            <h2 id="resultTitle">Prediction Result</h2>
+            <div class="probability-circle">
+                <span id="probabilityText">0%</span>
+                <p>Default Probability</p>
+            </div>
+            <p id="resultMessage" class="result-message">Fetching results...</p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
