@@ -4,4 +4,6 @@ scikit-learn
 xgboost
 pyyaml
 mlflow
+matplotlib
+seaborn
 -e .
